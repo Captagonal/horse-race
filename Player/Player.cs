@@ -89,6 +89,8 @@ public partial class Player : CharacterBody3D
 		Velocity = velocity;
 		MoveAndSlide();
 		Vector2 inputCam = Input.GetVector("Look_Left", "Look_Right", "Look_Up", "Look_Down");
+		var camHeight = Math.Sin(Math.Sqrt( Position.X * Position.X + Position.Y * Position.Y) * 1.5) / 5;
+		_camera.Position = new Vector3(0, (float)camHeight, 0);
 		if (inputCam == Vector2.Zero)
 		{
 			return;
@@ -96,8 +98,6 @@ public partial class Player : CharacterBody3D
 		_head.RotateY(-inputCam.X * CameraSensitivity * 13);
 		_camera.RotateX(-inputCam.Y * CameraSensitivity * 13);
 		Vector3 camRotation = _camera.Rotation;
-		var camHeight = Math.Sin(Math.Sqrt( Position.X * Position.X + Position.Y * Position.Y));
-		_camera.Position.Y = camHeight;
 		camRotation.X = Mathf.Clamp(camRotation.X, Mathf.DegToRad(-80f), Mathf.DegToRad(80f));
 
 		_camera.Rotation = camRotation;

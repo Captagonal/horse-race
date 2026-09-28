@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6640w5ofl7wg"]
 
 [ext_resource type="PackedScene" uid="uid://c8fanvekuvnfv" path="res://Player/Player.tscn" id="1_glv2v"]
+[ext_resource type="Material" uid="uid://b6csavytgbti0" path="res://Mats/Grass.tres" id="1_uu6xs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rxg2q"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,6 +19,7 @@ glow_enabled = true
 data = PackedVector3Array(38.62, 0, 5, -38.62, 0, 5, 38.62, 0, -5, -38.62, 0, 5, -38.62, 0, -5, 38.62, 0, -5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_odegc"]
+lightmap_size_hint = Vector2i(388, 52)
 size = Vector2(77.24, 10)
 
 [node name="Node3D" type="Node3D" unique_id=307995270]
@@ -37,8 +39,19 @@ shape = SubResource("ConcavePolygonShape3D_glv2v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1725832896]
 mesh = SubResource("PlaneMesh_odegc")
+surface_material_override/0 = ExtResource("1_uu6xs")
 
 [node name="Player" parent="." unique_id=1583937931 instance=ExtResource("1_glv2v")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0527153, 1, 0.7860122)
 Speed = 9
 SprintSpeed = 16
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1803522645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.999046, 0, 21.669151)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=78328386]
+shape = SubResource("ConcavePolygonShape3D_glv2v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=167349855]
+mesh = SubResource("PlaneMesh_odegc")
+surface_material_override/0 = ExtResource("1_uu6xs")
