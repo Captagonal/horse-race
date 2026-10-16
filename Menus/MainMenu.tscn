@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://htqa2ljbkeka"]
+
+[ext_resource type="Texture2D" uid="uid://5uevxto8kekd" path="res://Screenshot From 2026-10-15 20-16-27.png" id="1_r8dbq"]
+[ext_resource type="FontFile" uid="uid://dj33u1asotmgf" path="res://Silkscreen-Regular.ttf" id="2_r8dbq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_odegc"]
+line_spacing = 3.05
+font = ExtResource("2_r8dbq")
+font_size = 185
+
+[node name="MainMenu" type="Node2D" unique_id=148115617]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1362926239]
+offset_right = 1926.0
+offset_bottom = 1083.0
+texture = ExtResource("1_r8dbq")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1020450505]
+custom_minimum_size = Vector2(1080, 0)
+offset_top = 163.0
+offset_right = 1924.0
+offset_bottom = 462.0
+text = "horse racing"
+label_settings = SubResource("LabelSettings_odegc")
+horizontal_alignment = 1
+autowrap_mode = 3

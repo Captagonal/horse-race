@@ -1,26 +1,30 @@
 [gd_scene format=3 uid="uid://6640w5ofl7wg"]
 
 [ext_resource type="PackedScene" uid="uid://c8fanvekuvnfv" path="res://Player/Player.tscn" id="1_glv2v"]
-[ext_resource type="Material" uid="uid://b6csavytgbti0" path="res://Mats/Grass.tres" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://dvx1v31v47nyv" path="res://Ground/Levels/Level 1.blend" id="2_uu6xs"]
+[ext_resource type="Script" uid="uid://cgvwaax4e2a6j" path="res://Ground/GroundMaterial.cs" id="3_r0du0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rxg2q"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cm0pq"]
+sky_horizon_color = Color(0.38431373, 0.45490196, 0.54901963, 1)
+ground_bottom_color = Color(0.21960784, 0.40392157, 0.3019608, 1)
+ground_horizon_color = Color(0.20784314, 0.4, 0.29803923, 1)
 
-[sub_resource type="Sky" id="Sky_glv2v"]
-sky_material = SubResource("ProceduralSkyMaterial_rxg2q")
+[sub_resource type="Sky" id="Sky_r0du0"]
+sky_material = SubResource("ProceduralSkyMaterial_cm0pq")
 
 [sub_resource type="Environment" id="Environment_uu6xs"]
 background_mode = 2
-sky = SubResource("Sky_glv2v")
+background_color = Color(0.75200003, 0.8, 0.7968, 1)
+sky = SubResource("Sky_r0du0")
 glow_enabled = true
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_glv2v"]
-data = PackedVector3Array(38.62, 0, 5, -38.62, 0, 5, 38.62, 0, -5, -38.62, 0, 5, -38.62, 0, -5, 38.62, 0, -5)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_odegc"]
-lightmap_size_hint = Vector2i(388, 52)
-size = Vector2(77.24, 10)
+[sub_resource type="Curve3D" id="Curve3D_r0du0"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.806984, 0, 2.4499893, 0, 0, 0, 0, 0, 0, -7.5676346, 1.9073486e-06, 71.935196, 0, 0, 0, 0, 0, 0, -34.3674, -1.9073486e-06, 93.68969, 0, 0, 0, 0, 0, 0, -43.808006, 0, 115.88613, 0, 0, 0, 0, 0, 0, -16.92138, 0, 128.70221, 0, 0, 0, 0, 0, 0, 75.10322, -7.6293945e-06, 84.512375, 0, 0, 0, 0, 0, 0, 101.08232, 0, 89.47635, 0, 0, 0, 0, 0, 0, 125.531975, 0, 97.168175, 0, 0, 0, 0, 0, 0, 158.09833, 7.6293945e-06, 57.11728, 0, 0, 0, 0, 0, 0, 157.20256, -7.6293945e-06, 20.955227, 0, 0, 0, 0, 0, 0, 102.265396, 0, -16.671677, 0, 0, 0, 0, 0, 0, 81.99963, 0, -56.27246, 0, 0, 0, 0, 0, 0, 51.07735, 0, -93.68004, 0, 0, 0, 0, 0, 0, 19.315186, 0, -90.91887, 0, 0, 0, 0, 0, 0, -18.888023, 0, -66.73108, 0, 0, 0, 0, 0, 0, -17.41394, 0, -42.35226, 0, 0, 0, 0, 0, 0, -1.6988144, 0, -17.619658),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 17
 
 [node name="Node3D" type="Node3D" unique_id=307995270]
 
@@ -31,27 +35,34 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1195986527]
 environment = SubResource("Environment_uu6xs")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1932965021]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.999046, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=658165617]
-shape = SubResource("ConcavePolygonShape3D_glv2v")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1725832896]
-mesh = SubResource("PlaneMesh_odegc")
-surface_material_override/0 = ExtResource("1_uu6xs")
-
 [node name="Player" parent="." unique_id=1583937931 instance=ExtResource("1_glv2v")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0527153, 1, 0.7860122)
-Speed = 9
-SprintSpeed = 16
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -60.176373, 2.094933, 0.7860122)
+Speed = 10.0
+SprintSpeed = 25.0
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1803522645]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.999046, 0, 21.669151)
+[node name="Level 1" parent="." unique_id=449762663 instance=ExtResource("2_uu6xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.758136, -0.0042696, 15.561321)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=78328386]
-shape = SubResource("ConcavePolygonShape3D_glv2v")
+[node name="StaticBody3D" parent="Level 1/BézierCircle" parent_id_path=PackedInt32Array(449762663, 897147086) index="0" unique_id=135631595]
+script = ExtResource("3_r0du0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=167349855]
-mesh = SubResource("PlaneMesh_odegc")
-surface_material_override/0 = ExtResource("1_uu6xs")
+[node name="StaticBody3D" parent="Level 1/Cube_003" parent_id_path=PackedInt32Array(449762663, 1682877873) index="0" unique_id=2035336971]
+script = ExtResource("3_r0du0")
+GroundType = 1
+
+[node name="StaticBody3D" parent="Level 1/Cube_004" parent_id_path=PackedInt32Array(449762663, 1326775543) index="0" unique_id=1609461648]
+script = ExtResource("3_r0du0")
+GroundType = 1
+
+[node name="StaticBody3D" parent="Level 1/Plane" parent_id_path=PackedInt32Array(449762663, 806125739) index="0" unique_id=1801563147]
+script = ExtResource("3_r0du0")
+GroundType = 0
+
+[node name="Path3D" type="Path3D" parent="." unique_id=2022179543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.956, 1, 0)
+curve = SubResource("Curve3D_r0du0")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1285105210]
+transform = Transform3D(-0.99919266, 1.0888358e-09, 0.03969867, -5.5510102e-17, 0.9999764, -2.7427975e-08, -0.03969805, -2.7405799e-08, -0.99920833, -4.806984, 0, 2.4499893)
+
+[editable path="Level 1"]
