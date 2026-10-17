@@ -1,0 +1,28 @@
+[gd_resource type="VisualShader" format=3 uid="uid://d0vvnigcmuhhy"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_nas8h"]
+input_name = "normal"
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_d6xjr"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+function = 32
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_74qsd"]
+input_name = "binormal"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_gbhkv"]
+input_name = "normal"
+
+[resource]
+nodes/vertex/0/position = Vector2(480, 160)
+nodes/vertex/2/node = SubResource("VisualShaderNodeInput_74qsd")
+nodes/vertex/2/position = Vector2(-120, 180)
+nodes/vertex/3/node = SubResource("VisualShaderNodeInput_gbhkv")
+nodes/vertex/3/position = Vector2(-300, 340)
+nodes/fragment/0/position = Vector2(40, 580)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_nas8h")
+nodes/fragment/2/position = Vector2(-500, 600)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVectorFunc_d6xjr")
+nodes/fragment/3/position = Vector2(-180, 580)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 3, 0, 0, 0)

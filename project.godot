@@ -14,10 +14,6 @@ config/name="HorseRace"
 run/main_scene="uid://6640w5ofl7wg"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 
-[autoload]
-
-ImGui="*uid://ci03iguhl3wqp"
-
 [display]
 
 window/size/viewport_width=1920
@@ -31,7 +27,7 @@ project/assembly_name="HorseRace"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dear-imgui-godot/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

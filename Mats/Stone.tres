@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d3ocvx12ah3oe"]
+
+[ext_resource type="Shader" uid="uid://w8k5827dlqgo" path="res://Mats/Stone.gdshader" id="1_djn2y"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_djn2y")

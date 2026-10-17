@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dbgffn611h7lw"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+emission_enabled = true
+emission = Color(0.1728327, 0.17283267, 0.17283267, 1)
+emission_energy_multiplier = 1.5
+billboard_keep_scale = true
+point_size = 24.2
+z_clip_scale = 0.97
+fov_override = 1.0
+proximity_fade_distance = 101.3
+distance_fade_max_distance = 1340.51
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+stencil_outline_thickness = 0.028

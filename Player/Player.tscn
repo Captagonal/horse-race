@@ -4,8 +4,10 @@
 [ext_resource type="AudioStream" uid="uid://8f6ujm4kitjc" path="res://Player/horse-footsteps.mp3" id="2_6ysni"]
 [ext_resource type="PackedScene" uid="uid://buetfe8506sm6" path="res://Player/CowboyHat.blend" id="2_q3lat"]
 [ext_resource type="Texture2D" uid="uid://ug21y74l73el" path="res://Player/wheat.png" id="2_tok1r"]
+[ext_resource type="AudioStream" uid="uid://buatl6mck7422" path="res://Player/CountDown.mp3" id="3_vlldt"]
 [ext_resource type="Shader" uid="uid://b8k6hmdcd5xtl" path="res://Player/Player.gdshader" id="4_ddoul"]
 [ext_resource type="AudioStream" uid="uid://volke2g2ffae" path="res://Player/Horse.mp3" id="5_8g4oa"]
+[ext_resource type="PackedScene" uid="uid://drimg0ny5s6na" path="res://Player/Horse.blend" id="8_s1rgi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ddoul"]
 shader = ExtResource("4_ddoul")
@@ -17,6 +19,8 @@ shader_parameter/color_levels = 20.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0rwas"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tok1r"]
+transparency = 1
+no_depth_test = true
 albedo_color = Color(0.3465834, 0.20248175, 0.059202604, 1)
 emission_enabled = true
 emission = Color(0.19287014, 0.13513422, 0.09502385, 1)
@@ -48,10 +52,16 @@ stream = ExtResource("2_6ysni")
 volume_db = 6.87
 parameters/looping = true
 
+[node name="CountDown" type="AudioStreamPlayer2D" parent="." unique_id=1807174802]
+stream = ExtResource("3_vlldt")
+volume_db = 17.37
+autoplay = true
+max_polyphony = 3
+parameters/looping = false
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=631196819]
 stream = ExtResource("5_8g4oa")
-volume_db = 9.185
-autoplay = true
+volume_db = 5.81
 parameters/looping = true
 
 [node name="Control" type="Control" parent="." unique_id=1318365680]
@@ -99,6 +109,7 @@ cull_mask = 1048573
 transform = Transform3D(0.54999995, 0, 0, 0, 0.5352042, -0.11634666, 0, 0.12671417, 0.4914147, -0.004199147, 0.30629122, 0.09407939)
 
 [node name="Cube" parent="Head/Camera3D/CowboyHat" index="0" unique_id=940580368]
+transform = Transform3D(1.0000001, 0, 0, 0, 0.99887174, -0.04749301, 0, 0.04749292, 0.9988717, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_tok1r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head" unique_id=769558879]
@@ -115,6 +126,9 @@ mesh = SubResource("CapsuleMesh_tok1r")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.12837645, 0.09369433, -0.41332877)
 layers = 2
 mesh = SubResource("CapsuleMesh_ddoul")
+
+[node name="Horse2" parent="Head" unique_id=475450168 instance=ExtResource("8_s1rgi")]
+transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 0, -0.98225963, 0.63824546)
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1564048645]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1670798, 0.01086235)

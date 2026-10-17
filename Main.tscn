@@ -63,6 +63,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.956, 1, 0)
 curve = SubResource("Curve3D_r0du0")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1285105210]
-transform = Transform3D(-0.99919266, 1.0888358e-09, 0.03969867, -5.5510102e-17, 0.9999764, -2.7427975e-08, -0.03969805, -2.7405799e-08, -0.99920833, -4.806984, 0, 2.4499893)
+transform = Transform3D(-0.99919176, 1.0888358e-09, 0.03969867, -5.5510053e-17, 0.9999764, -2.7427975e-08, -0.039698016, -2.7405799e-08, -0.99920833, -4.806984, 0, 2.4499893)
 
 [editable path="Level 1"]

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dkrq8no3ikvlj"]
+
+[ext_resource type="PackedScene" uid="uid://c8fanvekuvnfv" path="res://Player/Player.tscn" id="2_q04gf"]
+[ext_resource type="PackedScene" uid="uid://cmpwy6fjgc5ij" path="res://Ground/Levels/Level2B.blend" id="3_s8dg4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s8dg4"]
+sky_horizon_color = Color(0.38431373, 0.45490196, 0.54901963, 1)
+ground_bottom_color = Color(0.119814135, 0.36640772, 0.6044371, 1)
+ground_horizon_color = Color(0.5245534, 0.630788, 0.86453646, 1)
+ground_curve = 0.09189614
+
+[sub_resource type="Sky" id="Sky_r0du0"]
+sky_material = SubResource("ProceduralSkyMaterial_s8dg4")
+
+[sub_resource type="Environment" id="Environment_ex07k"]
+background_mode = 2
+background_color = Color(0.75200003, 0.8, 0.7968, 1)
+sky = SubResource("Sky_r0du0")
+ambient_light_source = 2
+ambient_light_color = Color(0.6942262, 0.8699424, 0.91864145, 1)
+glow_enabled = true
+
+[node name="Node3D" type="Node3D" unique_id=1244062025]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=423449664]
+transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, 0.38673532, -0.26318672, 0.8838374, -0.3169162, 0.8621094, 0.39538768, 0, 4.1335573, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1979488008]
+environment = SubResource("Environment_ex07k")
+
+[node name="Player" parent="." unique_id=1583937931 instance=ExtResource("2_q04gf")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1.1844096, -2.3418238)
+JumpImpulse = 16.0
+Speed = 10.0
+SprintSpeed = 25.0
+
+[node name="Level2B" parent="." unique_id=5965368 instance=ExtResource("3_s8dg4")]

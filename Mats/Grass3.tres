@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://1y1xl81wtk0d"]
+
+[ext_resource type="Shader" uid="uid://dxupavfl7mo41" path="res://Mats/Grass3.gdshader" id="1_l03h3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_l03h3")
+shader_parameter/grass_color = Color(0.25, 0.55, 0.2, 1)
+shader_parameter/dirt_color = Color(0.35, 0.25, 0.18, 1)
+shader_parameter/noise_scale = 0.305
+shader_parameter/grass_depth = 6.725
+shader_parameter/edge_roughness = 0.415
